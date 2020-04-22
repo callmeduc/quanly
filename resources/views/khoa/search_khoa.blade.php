@@ -3,7 +3,7 @@
 <div class="table-agile-info">
   <div class="panel panel-default">
     <div class="panel-heading">
-      Liệt Kê Sinh Viên
+      Liệt Kê Khoa
     </div>
     <div class="row w3-res-tb">
       <div class="col-sm-5 m-b-xs">
@@ -17,8 +17,9 @@
       </div>
       <div class="col-sm-4">
       </div>
-      <div class="col-sm-3">
-            <form action="{{URL::to('/show-search-sinhvien')}}" method="post" role="form">
+      
+          <div class="col-sm-3">
+            <form action="{{URL::to('/show-search')}}" method="post" role="form">
         {{csrf_field()}}
             <div class="input-group">
               <input type="text" name="keyword" class="input-sm form-control" placeholder=" Search">
@@ -28,6 +29,8 @@
             </div>
             </form>
           </div>
+      
+      
     </div>
     <div class="table-responsive">
       <?php
@@ -43,30 +46,24 @@
       <table class="table table-striped b-t b-light">
         <thead>
           <tr>
-            <th>Mã Sinh Viên</th>
-            <th>Tên Sinh Viên</th>
-            <th>Ngày Sinh</th>
-            <th>Địa Chỉ</th>
+            <th>Tên Khoa</th>
+            <th>Ngày Thành Lập</th>
             <th>Email</th>
             <th>Phone</th>
-            <th>KHoa</th>
             <th style="width:30px;"></th>
           </tr>
         </thead>
         <tbody>
-          @foreach($all_account as $key=>$value)
+          @foreach($keyword as $key=>$value)
           <tr>
-            <td> {{$value->masv}}</td>
             <td> {{$value->name}}</td>
-            <td> {{($value->birthday)}}</td>
-            <td> {{$value->address}}</td>
+            <td> {{($value->ngaythanhlap)}}</td>
             <td> {{$value->email}}</td>
             <td> {{$value->phone}}</td>
-            <td> {{$value->khoa}}</td>
             <td>
-              <a href="{{URL::to('/edit-sinhvien/'.$value->id)}}" class="active" ui-toggle-class="">
+              <a href="{{URL::to('/edit-khoa/'.$value->id)}}" class="active" ui-toggle-class="">
                 <i class="fa fa-pencil-square-o text-success text-active"></i></a>
-                <a onclick="return confirm('Hi.Bạn có chắc chắn xóa ko ??')" href="{{URL::to('/delete-sinhvien/'.$value->id)}}" class="active" ui-toggle-class="">
+                <a onclick="return confirm('Hi.Bạn có chắc chắn xóa ko ??')" href="{{URL::to('/delete-khoa/'.$value->id)}}" class="active" ui-toggle-class="">
                 <i class="fa fa-times text-danger text"></i></a>
             </td>
           </tr>

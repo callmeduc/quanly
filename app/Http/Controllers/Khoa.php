@@ -63,5 +63,11 @@ class Khoa extends Controller
         return Redirect::to('/all-khoa');
         // echo 'anh';
     }
+    public function search(Request $request)
+    {
+        $keyword_search=$request->keyword;
+        $keyword=DB::table('khoa')->where('name','like','%'.$keyword_search.'%')->get();
+        return view('khoa.search_khoa',['keyword'=>$keyword]);
+    }
 
 }

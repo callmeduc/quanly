@@ -17,14 +17,20 @@
       </div>
       <div class="col-sm-4">
       </div>
-      <div class="col-sm-3">
-        <div class="input-group">
-          <input type="text" class="input-sm form-control" placeholder="Search">
-          <span class="input-group-btn">
-            <button class="btn btn-sm btn-default" type="button">Go!</button>
-          </span>
-        </div>
-      </div>
+      
+          <div class="col-sm-3">
+            <form action="{{URL::to('/show-search')}}" method="post" role="form">
+        {{csrf_field()}}
+            <div class="input-group">
+              <input type="text" name="keyword" class="input-sm form-control" placeholder=" Search">
+              <span class="input-group-btn">
+              <button type="submit" name="add_khoa" class="btn btn-sm btn-default">Search</button>
+              </span>
+            </div>
+            </form>
+          </div>
+      
+      
     </div>
     <div class="table-responsive">
       <?php

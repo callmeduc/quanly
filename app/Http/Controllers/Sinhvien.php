@@ -73,5 +73,11 @@ class Sinhvien extends Controller
         return Redirect::to('/all-sinhvien');
         // echo 'anh';
     }
+    public function search(Request $request)
+    {
+        $keyword_search=$request->keyword;
+        $keyword=DB::table('sinhvien')->where('name','like','%'.$keyword_search.'%')->get();
+        return view('sinhvien.search_sinhvien',['keyword'=>$keyword]);
+    }
 
 }

@@ -45,3 +45,7 @@ Route::get('/all-khoa', 'Khoa@all_khoa');
 Route::get('/edit-khoa/{id}', 'Khoa@edit_khoa');
 Route::get('/delete-khoa/{id}', 'Khoa@delete_khoa');
 Route::post('/update-khoa/{id}', 'Khoa@update_khoa');
+
+//search
+Route::post('/show-search', 'Khoa@search');
+Route::post('/show-search-sinhvien', 'Sinhvien@search');

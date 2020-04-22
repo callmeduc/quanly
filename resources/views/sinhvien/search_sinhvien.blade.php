@@ -18,16 +18,13 @@
       <div class="col-sm-4">
       </div>
       <div class="col-sm-3">
-            <form action="{{URL::to('/show-search-sinhvien')}}" method="post" role="form">
-        {{csrf_field()}}
-            <div class="input-group">
-              <input type="text" name="keyword" class="input-sm form-control" placeholder=" Search">
-              <span class="input-group-btn">
-              <button type="submit" name="add_khoa" class="btn btn-sm btn-default">Search</button>
-              </span>
-            </div>
-            </form>
-          </div>
+        <div class="input-group">
+          <input type="text" class="input-sm form-control" placeholder="Search">
+          <span class="input-group-btn">
+            <button class="btn btn-sm btn-default" type="button">Go!</button>
+          </span>
+        </div>
+      </div>
     </div>
     <div class="table-responsive">
       <?php
@@ -54,7 +51,7 @@
           </tr>
         </thead>
         <tbody>
-          @foreach($all_account as $key=>$value)
+          @foreach($keyword as $key=>$value)
           <tr>
             <td> {{$value->masv}}</td>
             <td> {{$value->name}}</td>
