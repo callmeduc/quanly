@@ -24,6 +24,7 @@ class Khoa extends Controller
         $data['email']=$request->email;
         $data['phone']=$request->phone;
         $result=DB::table('khoa')->insert($data);
+        // $result=DB::table('khoa')->count();
      //    echo '<pre>';
     	// print_r($result);
      //    echo '</pre>';

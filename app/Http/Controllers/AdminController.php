@@ -13,7 +13,12 @@ session_start();
 class AdminController extends Controller
 {
     public function show_dashboard(){
-    	return view('admin.dashboard');
+        $khoa=DB::table('khoa')->count();
+        $admin=DB::table('admin')->count();
+        $sinhvien=DB::table('sinhvien')->count();
+    	// return view('admin.dashboard')->with('khoa'=>$khoa)->with('admin'=>$admin)->with('sinhvien'=>$sinhvien);
+        return view('admin.dashboard',['khoa'=>$khoa],['admin'=>$admin])->with('sinhvien',$sinhvien);
+        // return view('admin.dashboard',['khoa'=>$khoa],['admin'=>$admin],['sinhvien'=>$sinhvien]);
     }
     public function accessinto(Request $request){
         $admin_email=$request->admin_email;
